@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Thông tin tài khoản & Lịch sử mua hàng - MOBAVIET.COM</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .profile-card {
+            background: #fff;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .profile-user-info {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .profile-avatar-lg {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+            color: #fff;
+            font-size: 26px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-glow);
+        }
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            background: #fff;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: left;
+        }
+        .custom-table th {
+            background: #f8fafc;
+            color: #475569;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 11px;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .custom-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: middle;
+        }
+        .custom-table tr:hover td {
+            background: #f8fafc;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-left">
+                <span class="top-bar-item"><i class="fas fa-phone-alt"></i> Hotline: <strong>036.244.3838</strong></span>
+                <span class="top-bar-item"><i class="fas fa-clock"></i> Hỗ trợ 24/7</span>
+            </div>
+            <div class="top-bar-right">
+                <a href="index.html" class="top-bar-item"><i class="fas fa-arrow-left"></i> Quay lại trang chủ</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="main-header">
+        <div class="container header-inner">
+            <a href="index.html" class="header-logo">
+                <img src="assets/logo.png" alt="MOBAVIET LOGO" onerror="this.src='https://static3.mingame88.com/bp-cdn/upload/images/MwQ64eVbnQ_1735568235(1).png'">
+            </a>
+            <nav class="header-nav">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Trang chủ</a>
+                <a href="index.html#accounts-section" class="nav-link"><i class="fas fa-gamepad"></i> Mua acc</a>
+                <a href="javascript:void(0)" onclick="openRechargeModal('card')" class="nav-link"><i class="fas fa-credit-card"></i> Nạp thẻ</a>
+                <a href="javascript:void(0)" onclick="openRechargeModal('atm')" class="nav-link"><i class="fas fa-qrcode"></i> Nạp ATM</a>
+            </nav>
+            <div class="header-actions" id="header-auth-actions"></div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 25px;">
+
+        <!-- PROFILE HEADER CARD -->
+        <div class="profile-card">
+            <div class="profile-user-info">
+                <div class="profile-avatar-lg" id="prof-avatar">M</div>
+                <div>
+                    <h2 style="font-family: var(--font-heading); font-size: 18px; font-weight: 800; color: #1e293b;" id="prof-username">mobaviet_pro</h2>
+                    <div style="font-size: 12px; color: #64748b; margin-top: 2px;">
+                        ID tài khoản: <strong id="prof-id">2953358</strong> | Tham gia: Tháng 11/2026
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                <div style="background: #f8fafc; padding: 10px 18px; border-radius: var(--radius-sm); border: 1px solid #e2e8f0; text-align: right;">
+                    <div style="font-size: 11px; color: #64748b; text-transform: uppercase; font-weight: 700;">Số dư hiện tại</div>
+                    <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: #2ecc71;" id="prof-balance">1.000.000đ</div>
+                </div>
+
+                <button class="btn-filter-apply" style="padding: 0 18px; height: 42px;" onclick="openRechargeModal('card')">
+                    <i class="fas fa-wallet"></i> Nạp tiền ngay
+                </button>
+            </div>
+        </div>
+
+        <!-- PROFILE TABS -->
+        <div class="modal-tabs" style="background: #fff; border: 1px solid var(--border-color); padding: 6px;">
+            <button class="modal-tab-btn active" id="tab-btn-orders" onclick="switchProfileTab('orders')">
+                <i class="fas fa-shopping-bag"></i> Lịch Sử Mua Nick (<span id="orders-count">0</span>)
+            </button>
+            <button class="modal-tab-btn" id="tab-btn-trans" onclick="switchProfileTab('trans')">
+                <i class="fas fa-exchange-alt"></i> Biến Động Số Dư & Nạp Tiền
+            </button>
+            <button class="modal-tab-btn" id="tab-btn-password" onclick="switchProfileTab('password')">
+                <i class="fas fa-key"></i> Đổi Mật Khẩu
+            </button>
+        </div>
+
+        <!-- TAB 1: ORDERS -->
+        <div id="view-orders" style="margin-bottom: 40px;">
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn</th>
+                            <th>Mã Nick</th>
+                            <th>Giá mua</th>
+                            <th>Tài khoản</th>
+                            <th>Mật khẩu</th>
+                            <th>Mã 2FA</th>
+                            <th>Thời gian</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-table-body">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 2: TRANSACTIONS -->
+        <div id="view-trans" style="display: none; margin-bottom: 40px;">
+            <div class="table-responsive">
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Mã GD</th>
+                            <th>Loại giao dịch</th>
+                            <th>Số tiền</th>
+                            <th>Thời gian</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="trans-table-body">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 3: PASSWORD -->
+        <div id="view-password" style="display: none; max-width: 480px; margin-bottom: 40px; background: #fff; padding: 24px; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <h3 style="font-size: 15px; font-weight: 700; margin-bottom: 16px;">ĐỔI MẬT KHẨU TÀI KHOẢN</h3>
+            <form id="form-change-password">
+                <div class="filter-group" style="margin-bottom: 12px;">
+                    <label class="filter-label">Mật khẩu cũ</label>
+                    <input type="password" class="filter-input" required>
+                </div>
+                <div class="filter-group" style="margin-bottom: 12px;">
+                    <label class="filter-label">Mật khẩu mới</label>
+                    <input type="password" id="new-pw" class="filter-input" required>
+                </div>
+                <div class="filter-group" style="margin-bottom: 16px;">
+                    <label class="filter-label">Xác nhận mật khẩu mới</label>
+                    <input type="password" id="confirm-new-pw" class="filter-input" required>
+                </div>
+                <button type="submit" class="btn-filter-apply" style="width: 100%; height: 40px;">
+                    Lưu mật khẩu mới
+                </button>
+            </form>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container footer-bottom">
+            <div>© 2026 MOBAVIET.COM - All Rights Reserved.</div>
+            <div>Hotline hỗ trợ: 036.244.3838</div>
+        </div>
+    </footer>
+
+    <!-- RECHARGE MODAL INCLUDE -->
+    <div class="modal-backdrop" id="rechargeModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <span class="modal-title"><i class="fas fa-wallet"></i> NẠP TIỀN TÀI KHOẢN</span>
+                <button class="btn-close-modal" onclick="closeModal('rechargeModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    <button class="modal-tab-btn active" id="tab-btn-card" onclick="switchRechargeTab('card')">
+                        <i class="fas fa-credit-card"></i> Thẻ Cào Auto
+                    </button>
+                    <button class="modal-tab-btn" id="tab-btn-atm" onclick="switchRechargeTab('atm')">
+                        <i class="fas fa-university"></i> ATM / VietQR
+                    </button>
+                </div>
+
+                <div id="recharge-view-card">
+                    <form id="form-card-recharge">
+                        <div class="filter-group" style="margin-bottom: 12px;">
+                            <label class="filter-label">Chọn nhà mạng</label>
+                            <select id="recharge-telecom" class="filter-select"></select>
+                        </div>
+                        <div class="filter-group" style="margin-bottom: 12px;">
+                            <label class="filter-label">Chọn mệnh giá</label>
+                            <div class="amount-grid" id="recharge-amounts-grid"></div>
+                        </div>
+                        <div class="filter-group" style="margin-bottom: 12px;">
+                            <label class="filter-label">Mã số thẻ (PIN)</label>
+                            <input type="text" id="card-pin" class="filter-input" placeholder="Nhập mã thẻ..." required>
+                        </div>
+                        <div class="filter-group" style="margin-bottom: 14px;">
+                            <label class="filter-label">Số Serial</label>
+                            <input type="text" id="card-serial" class="filter-input" placeholder="Nhập số seri..." required>
+                        </div>
+                        <button type="submit" class="btn-filter-apply" style="width: 100%; height: 42px;">
+                            Nạp thẻ ngay
+                        </button>
+                    </form>
+                </div>
+
+                <div id="recharge-view-atm" style="display: none;">
+                    <div class="vietqr-card">
+                        <div style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">
+                            Quét mã QR để nạp tiền ATM
+                        </div>
+                        <img id="vietqr-image" class="vietqr-img" src="" alt="VietQR Code">
+                        <div class="filter-group" style="margin-bottom: 10px;">
+                            <label class="filter-label">Chọn số tiền nạp</label>
+                            <select id="atm-amount-select" class="filter-select">
+                                <option value="50000">50.000 VNĐ</option>
+                                <option value="100000" selected>100.000 VNĐ</option>
+                                <option value="200000">200.000 VNĐ</option>
+                                <option value="500000">500.000 VNĐ</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn-filter-apply" style="width: 100%; height: 40px; margin-top: 10px; background: #2ecc71;" onclick="simulateAtmPayment()">
+                            <i class="fas fa-check-double"></i> Đã chuyển khoản (Cộng tiền ngay)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProfileData();
+
+            document.getElementById('form-change-password').onsubmit = function(e) {
+                e.preventDefault();
+                const p1 = document.getElementById('new-pw').value;
+                const p2 = document.getElementById('confirm-new-pw').value;
+                if (p1 !== p2) {
+                    showToast("Mật khẩu mới không khớp!", "error");
+                    return;
+                }
+                showToast("Đổi mật khẩu thành công!", "success");
+                this.reset();
+            };
+        });
+
+        function renderProfileData() {
+            const user = window.AppState.user;
+            if (!user || !user.isLoggedIn) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            document.getElementById('prof-avatar').textContent = user.username.charAt(0).toUpperCase();
+            document.getElementById('prof-username').textContent = user.username;
+            document.getElementById('prof-id').textContent = user.id;
+            document.getElementById('prof-balance').textContent = window.formatMoney(user.balance);
+
+            // Orders Table
+            const orders = window.AppState.orders || [];
+            document.getElementById('orders-count').textContent = orders.length;
+            const ordersBody = document.getElementById('orders-table-body');
+            if (orders.length === 0) {
+                ordersBody.innerHTML = `<tr><td colspan="8" style="text-align: center; padding: 30px; color: #94a3b8;">Bạn chưa mua tài khoản nào.</td></tr>`;
+            } else {
+                ordersBody.innerHTML = orders.map(ord => `
+                    <tr>
+                        <td><strong>${ord.orderId}</strong></td>
+                        <td><span class="account-id-tag" style="position: static;">${ord.accId}</span></td>
+                        <td style="font-weight: 700; color: #ff4757;">${window.formatMoney(ord.price)}</td>
+                        <td><code>${ord.username}</code></td>
+                        <td>
+                            <code>${ord.password}</code>
+                            <span class="copy-badge" onclick="navigator.clipboard.writeText('${ord.password}'); showToast('Đã chép mật khẩu!');"><i class="fas fa-copy"></i></span>
+                        </td>
+                        <td><code>${ord.twoFactor || 'Không có'}</code></td>
+                        <td style="font-size: 12px; color: #64748b;">${ord.date}</td>
+                        <td>
+                            <a href="https://facebook.com/mobavietshop" target="_blank" class="stat-chip" style="font-size: 11px; display: inline-flex;">
+                                <i class="fas fa-headset"></i> Hỗ trợ
+                            </a>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+
+            // Transactions Table
+            const trans = window.AppState.transactions || [];
+            const transBody = document.getElementById('trans-table-body');
+            if (trans.length === 0) {
+                transBody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 30px; color: #94a3b8;">Chưa có giao dịch phát sinh.</td></tr>`;
+            } else {
+                transBody.innerHTML = trans.map(t => `
+                    <tr>
+                        <td><strong>${t.id}</strong></td>
+                        <td>${t.type}</td>
+                        <td style="font-weight: 700; color: ${t.amount >= 0 ? '#2ecc71' : '#ff4757'};">
+                            ${t.amount >= 0 ? '+' : ''}${window.formatMoney(t.amount)}
+                        </td>
+                        <td style="font-size: 12px; color: #64748b;">${t.date}</td>
+                        <td><span class="stat-chip" style="background: #eafaf1; color: #27ae60; font-size: 11px;">${t.status}</span></td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        window.switchProfileTab = function(tab) {
+            document.getElementById('tab-btn-orders').classList.remove('active');
+            document.getElementById('tab-btn-trans').classList.remove('active');
+            document.getElementById('tab-btn-password').classList.remove('active');
+
+            document.getElementById('view-orders').style.display = 'none';
+            document.getElementById('view-trans').style.display = 'none';
+            document.getElementById('view-password').style.display = 'none';
+
+            if (tab === 'orders') {
+                document.getElementById('tab-btn-orders').classList.add('active');
+                document.getElementById('view-orders').style.display = 'block';
+            } else if (tab === 'trans') {
+                document.getElementById('tab-btn-trans').classList.add('active');
+                document.getElementById('view-trans').style.display = 'block';
+            } else if (tab === 'password') {
+                document.getElementById('tab-btn-password').classList.add('active');
+                document.getElementById('view-password').style.display = 'block';
+            }
+        };
+    </script>
+</body>
+</html>

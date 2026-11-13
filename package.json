@@ -1,0 +1,17 @@
+{
+  "name": "mobaviet-clone",
+  "version": "1.0.0",
+  "description": "Mobaviet.com Production Clone with REA Engineering & Full Functionality",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "mobaviet",
+    "shopacc",
+    "lien-quan"
+  ],
+  "author": "Antigravity",
+  "license": "ISC"
+}

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MOBAVIET.COM - Shop Acc Liên Quân, Bán Nick Game VIP Uy Tín #1 Việt Nam</title>
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Shop acc Liên Quân uy tín số 1 Việt Nam của MOBA Việt. Bán nick Liên Quân VIP giá rẻ, thử vận may, túi mù, nạp thẻ tự động 24/7.">
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Production CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-left">
+                <span class="top-bar-item"><i class="fas fa-phone-alt"></i> Hotline: <strong>036.244.3838</strong></span>
+                <span class="top-bar-item"><i class="fas fa-clock"></i> Hỗ trợ 24/7</span>
+                <div class="ticker-wrap">
+                    <span class="ticker-badge">SỰ KIỆN</span>
+                    <span>Tặng ngay 3 skin Chung Sức khi mua nick trên 200k!</span>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://facebook.com/mobavietshop" target="_blank" class="top-bar-item"><i class="fab fa-facebook"></i> Fanpage CSKH</a>
+                <a href="#accounts-section" class="top-bar-item"><i class="fas fa-bolt"></i> Săn Nick Giảm 50%</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="main-header">
+        <div class="container header-inner">
+            <a href="index.html" class="header-logo">
+                <img src="assets/logo.png" alt="MOBAVIET LOGO" onerror="this.src='https://static3.mingame88.com/bp-cdn/upload/images/MwQ64eVbnQ_1735568235(1).png'">
+            </a>
+
+            <!-- NAVIGATION -->
+            <nav class="header-nav">
+                <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Trang chủ</a>
+                <a href="#accounts-section" class="nav-link"><i class="fas fa-gamepad"></i> Mua acc</a>
+                <a href="#section-tui-mu" class="nav-link"><i class="fas fa-box-open"></i> Túi mù</a>
+                <a href="#section-thu-van-may" class="nav-link"><i class="fas fa-dice"></i> Thử vận may</a>
+                <a href="javascript:void(0)" onclick="openMinigameModal()" class="nav-link"><i class="fas fa-dharmachakra"></i> Vòng quay</a>
+                <a href="javascript:void(0)" onclick="openRechargeModal('card')" class="nav-link"><i class="fas fa-credit-card"></i> Nạp thẻ</a>
+                <a href="javascript:void(0)" onclick="openRechargeModal('atm')" class="nav-link"><i class="fas fa-qrcode"></i> Nạp ATM</a>
+            </nav>
+
+            <!-- AUTH / WALLET ACTIONS -->
+            <div class="header-actions" id="header-auth-actions">
+                <!-- Dynamically rendered by app.js -->
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- HERO SECTION: BANNER & TOP RECHARGE -->
+        <section class="hero-section">
+            <div class="hero-grid">
+                <!-- Banner Slider -->
+                <div class="hero-banner-slider">
+                    <img src="assets/banner.png" alt="Mobaviet Banner" onerror="this.src='https://static3.mingame88.com/bp-cdn/upload/images/33.png'">
+                    <div class="banner-overlay-badge">
+                        <span class="pulse-dot"></span>
+                        <span>12.450 Game Thủ Đang Mua Sắm</span>
+                    </div>
+                </div>
+
+                <!-- Top Nạp Card -->
+                <div class="top-charge-card">
+                    <div class="card-header-styled">
+                        <h3><i class="fas fa-crown"></i> TOP NẠP THÁNG</h3>
+                        <span style="font-size: 11px; color: #cbd5e1;"><i class="fas fa-gift"></i> Quà VIP</span>
+                    </div>
+                    <ul class="top-charge-list" id="top-charge-list">
+                        <!-- Populated by script -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FLASH SALE & QUICK ACTIONS -->
+        <div class="quick-action-bar">
+            <div class="flash-sale-title">
+                <i class="fas fa-bolt fa-lg" style="color: #ff4757;"></i>
+                <span>FLASH SALE GIỜ VÀNG</span>
+                <div class="flash-countdown">
+                    <span class="timer-box">04</span>
+                    <span class="timer-sep">:</span>
+                    <span class="timer-box">45</span>
+                    <span class="timer-sep">:</span>
+                    <span class="timer-box">20</span>
+                </div>
+            </div>
+
+            <div class="quick-links">
+                <a href="javascript:void(0)" onclick="openMinigameModal()" class="quick-btn" style="background: #fff3e0; color: #e67e22;">
+                    <i class="fas fa-gift"></i> Vòng Quay 20k
+                </a>
+                <a href="#accounts-section" class="quick-btn">
+                    <i class="fas fa-fire"></i> Nick Liên Quân VIP
+                </a>
+                <a href="javascript:void(0)" onclick="openRechargeModal('card')" class="quick-btn" style="background: #e8f9fa; color: #208791;">
+                    <i class="fas fa-bolt"></i> Nạp Thẻ Auto 30s
+                </a>
+            </div>
+        </div>
+
+        <!-- CATEGORY SECTIONS -->
+        <div id="dynamic-sections">
+            <!-- Dynamically populated from window.MOBAVIET_DATA.categories -->
+        </div>
+
+        <!-- ACCOUNT PRODUCTS SECTION -->
+        <section class="section-block" id="accounts-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-shield-alt"></i> DANH SÁCH NICK LIÊN QUÂN VIP <span id="filter-result-count" style="font-size: 14px; color: #7f8c8d; font-weight: 600;"></span>
+                </h2>
+                <div style="font-size: 12px; color: #64748b;">Trắng thông tin - Bảo hành 100% trọn đời</div>
+            </div>
+
+            <!-- FILTERS -->
+            <div class="filter-wrapper">
+                <div class="filter-grid">
+                    <div class="filter-group">
+                        <label class="filter-label">Tìm theo mã số / Skin / Tướng</label>
+                        <input type="text" id="filter-search" class="filter-input" placeholder="Nhập mã số (VD: EQQT15358) hoặc tên skin...">
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Khoảng giá</label>
+                        <select id="filter-price" class="filter-select">
+                            <option value="all">-- Tất cả mức giá --</option>
+                            <option value="under100">Dưới 100.000đ</option>
+                            <option value="100to300">100.000đ - 300.000đ</option>
+                            <option value="300to1m">300.000đ - 1.000.000đ</option>
+                            <option value="over1m">Trên 1.000.000đ</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Bậc Rank</label>
+                        <select id="filter-rank" class="filter-select">
+                            <option value="all">-- Tất cả Rank --</option>
+                            <option value="Kim Cương">Kim Cương</option>
+                            <option value="Tinh Anh">Tinh Anh</option>
+                            <option value="Cao Thủ">Cao Thủ</option>
+                            <option value="Thách Đấu">Thách Đấu</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Trạng thái thông tin</label>
+                        <select id="filter-status" class="filter-select">
+                            <option value="all">-- Tất cả --</option>
+                            <option value="Trắng Thông Tin">Trắng Thông Tin</option>
+                            <option value="Có SĐT (Đổi được)">Có SĐT (Đổi được)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 12px; border-top: 1px solid #f1f5f9; flex-wrap: wrap; gap: 10px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase;">Sắp xếp:</span>
+                        <select id="filter-sort" class="filter-select" style="width: auto; height: 32px; font-size: 12px;">
+                            <option value="newest">Mới cập nhật</option>
+                            <option value="price_asc">Giá từ thấp đến cao</option>
+                            <option value="price_desc">Giá từ cao đến thấp</option>
+                            <option value="skins_desc">Nhiều trang phục nhất</option>
+                        </select>
+                    </div>
+                    <button id="filter-reset" class="btn-filter-reset">
+                        <i class="fas fa-redo-alt"></i> Xóa bộ lọc
+                    </button>
+                </div>
+            </div>
+
+            <!-- ACCOUNTS GRID -->
+            <div class="account-grid" id="accounts-container">
+                <!-- Rendered by filter.js -->
+            </div>
+
+            <!-- PAGINATION -->
+            <div class="pagination-wrap" id="accounts-pagination">
+                <!-- Rendered by filter.js -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Về chúng tôi</h4>
+                    <p style="font-size: 13px; line-height: 1.7; margin-bottom: 12px;">
+                        <strong>MOBAVIET.COM</strong> - Hệ thống phân phối tài khoản game Liên Quân Mobile chính thức và độc quyền của YouTuber <strong>MOBA Việt</strong>. Uy tín, chất lượng và bảo hành an toàn tuyệt đối 100%.
+                    </p>
+                    <p style="font-size: 13px;">
+                        <i class="fas fa-map-marker-alt" style="color: var(--primary-color);"></i> Trụ sở: Hà Nội & TP. Hồ Chí Minh<br>
+                        <i class="fas fa-phone-alt" style="color: var(--primary-color);"></i> Hotline CSKH: 036.244.3838 (8h00 - 24h00)
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Chính sách & Hỗ trợ</h4>
+                    <ul class="footer-links">
+                        <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> Quy định bảo hành tài khoản</a></li>
+                        <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> Hướng dẫn nạp thẻ cào & ATM</a></li>
+                        <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> Hướng dẫn đổi thông tin Garena</a></li>
+                        <li><a href="javascript:void(0)"><i class="fas fa-angle-right"></i> Cam kết bảo mật thông tin</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Thanh toán & Liên kết</h4>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 15px;">
+                        <span class="stat-chip" style="background: #2a2e3d; color: #fff;">Momo</span>
+                        <span class="stat-chip" style="background: #2a2e3d; color: #fff;">MB Bank</span>
+                        <span class="stat-chip" style="background: #2a2e3d; color: #fff;">Vietcombank</span>
+                        <span class="stat-chip" style="background: #2a2e3d; color: #fff;">Viettel / Vina / Mobi</span>
+                    </div>
+                    <p style="font-size: 12px; color: #64748b;">
+                        Hệ thống tự động duyệt đơn và cộng tiền chỉ sau 30 giây.
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 MOBAVIET.COM - All Rights Reserved. Designed for Production.</div>
+                <div>Trang web thuộc quyền sở hữu của MOBA Việt.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="m-nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Trang chủ</span>
+        </a>
+        <a href="#accounts-section" class="m-nav-item">
+            <i class="fas fa-shield-alt"></i>
+            <span>Mua acc</span>
+        </a>
+        <a href="javascript:void(0)" onclick="openRechargeModal('card')" class="m-nav-item">
+            <i class="fas fa-wallet"></i>
+            <span>Nạp tiền</span>
+        </a>
+        <a href="thong-tin.html" class="m-nav-item">
+            <i class="fas fa-user-circle"></i>
+            <span>Tài khoản</span>
+        </a>
+    </nav>
+
+    <!-- =======================================================================
+         MODALS
+         ======================================================================= -->
+
+    <!-- 1. POPUP ANNOUNCEMENT MODAL -->
+    <div class="modal-backdrop" id="noticeModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <span class="modal-title" style="color: #ff4757;"><i class="fas fa-bullhorn"></i> THÔNG BÁO TỪ MOBAVIET</span>
+                <button class="btn-close-modal" onclick="closeModal('noticeModal')">&times;</button>
+            </div>
+            <div class="modal-body" style="font-size: 14px; line-height: 1.8;">
+                <div style="text-align: center; margin-bottom: 14px;">
+                    <span style="font-family: var(--font-heading); font-size: 17px; font-weight: 800; color: #1e293b;">
+                        SHOP CHÍNH THỨC CỦA MOBAVIET
+                    </span>
+                    <p style="color: #64748b; font-size: 13px; margin-top: 4px;">Update Nick Liên Tục Cho Anh Em Lựa Chọn</p>
+                </div>
+
+                <div style="background: #fff5f5; border: 1px dashed #ff4757; border-radius: 8px; padding: 12px; margin-bottom: 14px; text-align: center;">
+                    <strong style="color: #ff4757;">🎁 ƯU ĐÃI ĐẶC BIỆT:</strong><br>
+                    Mua nick trên 200k nhắn shop tặng ngay 3 skin Chung Sức!<br>
+                    Hỗ trợ khách hàng 24/24 qua Fanpage chính thức.
+                </div>
+
+                <p style="text-align: center; font-size: 13px; color: #475569;">
+                    Cần hỗ trợ vui lòng nhắn tin trực tiếp fanpage mới của shop:
+                    <a href="https://facebook.com/mobavietshop" target="_blank" style="color: var(--primary-color); font-weight: 700;">TẠI ĐÂY (CLICK)</a>
+                </p>
+            </div>
+            <div class="modal-footer" style="justify-content: space-between;">
+                <button class="btn-filter-reset" onclick="dismissNotice(true)">Tắt trong 1h</button>
+                <button class="btn-filter-apply" style="flex: none; padding: 0 20px;" onclick="closeModal('noticeModal')">Đã hiểu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. RECHARGE MODAL (CARDS & ATM) -->
+    <div class="modal-backdrop" id="rechargeModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <span class="modal-title"><i class="fas fa-wallet"></i> NẠP TIỀN TÀI KHOẢN</span>
+                <button class="btn-close-modal" onclick="closeModal('rechargeModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    <button class="modal-tab-btn active" id="tab-btn-card" onclick="switchRechargeTab('card')">
+                        <i class="fas fa-credit-card"></i> Thẻ Cào Auto
+                    </button>
+                    <button class="modal-tab-btn" id="tab-btn-atm" onclick="switchRechargeTab('atm')">
+                        <i class="fas fa-university"></i> ATM / VietQR
+                    </button>
+                </div>
+
+                <!-- CARD VIEW -->
+                <div id="recharge-view-card">
+                    <div style="background: #fff5f5; border-left: 3px solid #ff4757; padding: 8px 12px; font-size: 12px; color: #e0404f; border-radius: 4px; margin-bottom: 14px;">
+                        *Chú ý: Vui lòng chọn đúng mệnh giá thẻ. Nạp sai mệnh giá có thể bị trừ chiết khấu nhà mạng.
+                    </div>
+
+                    <form id="form-card-recharge">
+                        <div class="filter-group" style="margin-bottom: 12px;">
+                            <label class="filter-label">Chọn nhà mạng</label>
+                            <select id="recharge-telecom" class="filter-select"></select>
+                        </div>
+
+                        <div class="filter-group" style="margin-bottom: 12px;">
+                            <label class="filter-label">Chọn mệnh giá</label>
+                            <div class="amount-grid" id="recharge-amounts-grid"></div>
+                        </div>
+
+                        <div class="filter-group" style="margin-bottom: 12px;">
+                            <label class="filter-label">Mã số thẻ (PIN)</label>
+                            <input type="text" id="card-pin" class="filter-input" placeholder="Nhập mã số sau lớp bạc cào..." required>
+                        </div>
+
+                        <div class="filter-group" style="margin-bottom: 14px;">
+                            <label class="filter-label">Số Serial</label>
+                            <input type="text" id="card-serial" class="filter-input" placeholder="Nhập số seri trên thẻ..." required>
+                        </div>
+
+                        <button type="submit" class="btn-filter-apply" style="width: 100%; height: 42px; font-size: 13px;">
+                            <i class="fas fa-check-circle"></i> Nạp thẻ ngay
+                        </button>
+                    </form>
+                </div>
+
+                <!-- ATM / VIETQR VIEW -->
+                <div id="recharge-view-atm" style="display: none;">
+                    <div class="vietqr-card">
+                        <div style="font-size: 13px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">
+                            Quét mã QR để chuyển khoản tự động
+                        </div>
+                        <img id="vietqr-image" class="vietqr-img" src="" alt="VietQR Code">
+
+                        <div class="filter-group" style="margin-bottom: 10px;">
+                            <label class="filter-label">Chọn số tiền nạp</label>
+                            <select id="atm-amount-select" class="filter-select">
+                                <option value="50000">50.000 VNĐ</option>
+                                <option value="100000" selected>100.000 VNĐ</option>
+                                <option value="200000">200.000 VNĐ</option>
+                                <option value="500000">500.000 VNĐ</option>
+                                <option value="1000000">1.000.000 VNĐ</option>
+                            </select>
+                        </div>
+
+                        <table class="bank-detail-table">
+                            <tr>
+                                <td style="color: #64748b;">Ngân hàng:</td>
+                                <td style="font-weight: 700;">MB BANK (Quân Đội)</td>
+                            </tr>
+                            <tr>
+                                <td style="color: #64748b;">Số tài khoản:</td>
+                                <td style="font-weight: 700;">
+                                    <span id="bank-acc-num">0362443838</span>
+                                    <span class="copy-badge" onclick="copyText('bank-acc-num')"><i class="fas fa-copy"></i> Chép</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="color: #64748b;">Chủ tài khoản:</td>
+                                <td style="font-weight: 700;">NGUYEN VAN THOAI</td>
+                            </tr>
+                            <tr>
+                                <td style="color: #64748b;">Nội dung CK:</td>
+                                <td style="font-weight: 800; color: #ff4757;">
+                                    <span id="atm-syntax-content">MOBAVIET NAP mobaviet_pro</span>
+                                    <span class="copy-badge" onclick="copyText('atm-syntax-content')"><i class="fas fa-copy"></i> Chép</span>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <button type="button" class="btn-filter-apply" style="width: 100%; height: 40px; margin-top: 14px; background: #2ecc71;" onclick="simulateAtmPayment()">
+                            <i class="fas fa-check-double"></i> Đã chuyển khoản (Cộng tiền ngay)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. SINGLE ACCOUNT DETAIL MODAL -->
+    <div class="modal-backdrop" id="accountDetailModal">
+        <div class="modal-dialog" style="max-width: 620px;">
+            <div class="modal-header">
+                <span class="modal-title" id="modal-detail-title">CHI TIẾT TÀI KHOẢN</span>
+                <button class="btn-close-modal" onclick="closeModal('accountDetailModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="border-radius: 8px; overflow: hidden; margin-bottom: 14px; position: relative;">
+                    <img id="modal-detail-img" src="" alt="" style="width: 100%; max-height: 260px; object-fit: cover;">
+                    <div class="account-id-tag" id="modal-detail-id" style="font-size: 13px; top: 10px; left: 10px;"></div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 14px;">
+                    <div class="stat-chip"><i class="fas fa-trophy" style="color: #f1c40f;"></i> Rank: <strong id="modal-detail-rank">Cao Thủ</strong></div>
+                    <div class="stat-chip"><i class="fas fa-shield-alt" style="color: var(--primary-color);"></i> Tướng: <strong id="modal-detail-champs">115</strong></div>
+                    <div class="stat-chip"><i class="fas fa-vest" style="color: #e74c3c;"></i> Trang phục: <strong id="modal-detail-skins">160</strong></div>
+                    <div class="stat-chip"><i class="fas fa-check-circle" style="color: #2ecc71;"></i> <strong id="modal-detail-status">Trắng Thông Tin</strong></div>
+                </div>
+
+                <div style="margin-bottom: 14px;">
+                    <div style="font-size: 12px; font-weight: 700; color: #475569; text-transform: uppercase; margin-bottom: 6px;">
+                        Trang phục nổi bật:
+                    </div>
+                    <div id="modal-detail-skins-list" style="display: flex; flex-wrap: wrap; gap: 6px;"></div>
+                </div>
+
+                <div style="display: flex; align-items: baseline; justify-content: space-between; padding: 12px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+                    <div>
+                        <span style="font-size: 12px; color: #64748b;">Giá thanh toán:</span>
+                        <div id="modal-detail-price" style="font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: #ff4757;"></div>
+                    </div>
+                    <div>
+                        <span id="modal-detail-oldprice" style="font-size: 13px; color: #94a3b8; text-decoration: line-through;"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-filter-reset" onclick="closeModal('accountDetailModal')">Đóng</button>
+                <button class="btn-buy-acc" id="modal-detail-buy-btn" style="padding: 0 24px; height: 38px;">
+                    <i class="fas fa-shopping-cart"></i> Mua ngay
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. PURCHASE SUCCESS MODAL -->
+    <div class="modal-backdrop" id="successModal">
+        <div class="modal-dialog">
+            <div class="modal-header" style="background: #2ecc71;">
+                <span class="modal-title" style="color: #fff;"><i class="fas fa-check-circle"></i> MUA TÀI KHOẢN THÀNH CÔNG!</span>
+                <button class="btn-close-modal" onclick="closeModal('successModal')">&times;</button>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <img src="assets/success.png" alt="Success" onerror="this.src='https://mobaviet.com/assets/frontend/theme_5/image/son/success.png'" style="width: 60px; margin: 0 auto 12px;">
+                <h3 style="font-size: 16px; font-weight: 800; color: #1e293b; margin-bottom: 4px;">
+                    Cảm ơn bạn đã tin tưởng MOBA Việt!
+                </h3>
+                <p style="font-size: 12px; color: #64748b; margin-bottom: 16px;">
+                    Dưới đây là thông tin đăng nhập của nick <strong id="success-acc-id"></strong>. Vui lòng đăng nhập và đổi mật khẩu để bảo mật!
+                </p>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; text-align: left; display: flex; flex-direction: column; gap: 10px;">
+                    <div>
+                        <label style="font-size: 11px; font-weight: 700; color: #64748b;">TÀI KHOẢN (GARENA)</label>
+                        <div style="display: flex; gap: 6px;">
+                            <input type="text" id="success-username" class="filter-input" readonly>
+                            <button class="btn-filter-reset" onclick="copyText('success-username')"><i class="fas fa-copy"></i></button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="font-size: 11px; font-weight: 700; color: #64748b;">MẬT KHẨU</label>
+                        <div style="display: flex; gap: 6px;">
+                            <input type="text" id="success-password" class="filter-input" readonly>
+                            <button class="btn-filter-reset" onclick="copyText('success-password')"><i class="fas fa-copy"></i></button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label style="font-size: 11px; font-weight: 700; color: #64748b;">MÃ XÁC THỰC 2FA (NẾU CÓ)</label>
+                        <div style="display: flex; gap: 6px;">
+                            <input type="text" id="success-2fa" class="filter-input" readonly>
+                            <button class="btn-filter-reset" onclick="copyText('success-2fa')"><i class="fas fa-copy"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="justify-content: space-between;">
+                <button class="btn-filter-reset" onclick="closeModal('successModal')">Tiếp tục mua sắm</button>
+                <a href="thong-tin.html" class="btn-filter-apply" style="line-height: 38px; text-align: center; padding: 0 16px;">
+                    <i class="fas fa-history"></i> Xem lịch sử đơn hàng
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. LOGIN MODAL -->
+    <div class="modal-backdrop" id="loginModal">
+        <div class="modal-dialog" style="max-width: 400px;">
+            <div class="modal-header">
+                <span class="modal-title"><i class="fas fa-user-lock"></i> ĐĂNG NHẬP HỆ THỐNG</span>
+                <button class="btn-close-modal" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-login">
+                    <div class="filter-group" style="margin-bottom: 12px;">
+                        <label class="filter-label">Tên tài khoản</label>
+                        <input type="text" id="login-username" class="filter-input" placeholder="Nhập tên đăng nhập..." value="mobaviet_pro" required>
+                    </div>
+                    <div class="filter-group" style="margin-bottom: 14px;">
+                        <label class="filter-label">Mật khẩu</label>
+                        <input type="password" id="login-password" class="filter-input" value="123456" required>
+                    </div>
+                    <button type="submit" class="btn-filter-apply" style="width: 100%; height: 40px;">
+                        Đăng nhập ngay
+                    </button>
+                </form>
+                <div style="margin-top: 14px; text-align: center; font-size: 13px; color: #64748b;">
+                    Chưa có tài khoản? <a href="javascript:void(0)" onclick="closeModal('loginModal'); openRegisterModal();" style="color: var(--primary-color); font-weight: 700;">Đăng ký ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. REGISTER MODAL -->
+    <div class="modal-backdrop" id="registerModal">
+        <div class="modal-dialog" style="max-width: 400px;">
+            <div class="modal-header">
+                <span class="modal-title"><i class="fas fa-user-plus"></i> ĐĂNG KÝ TÀI KHOẢN</span>
+                <button class="btn-close-modal" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="form-register">
+                    <div class="filter-group" style="margin-bottom: 12px;">
+                        <label class="filter-label">Tên tài khoản</label>
+                        <input type="text" id="reg-username" class="filter-input" placeholder="Tên đăng nhập..." required>
+                    </div>
+                    <div class="filter-group" style="margin-bottom: 12px;">
+                        <label class="filter-label">Mật khẩu</label>
+                        <input type="password" id="reg-password" class="filter-input" placeholder="Mật khẩu..." required>
+                    </div>
+                    <div class="filter-group" style="margin-bottom: 14px;">
+                        <label class="filter-label">Xác nhận mật khẩu</label>
+                        <input type="password" id="reg-confirm-password" class="filter-input" placeholder="Nhập lại mật khẩu..." required>
+                    </div>
+                    <button type="submit" class="btn-filter-apply" style="width: 100%; height: 40px;">
+                        Tạo tài khoản (+500k test)
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. MINIGAME: LUCKY WHEEL (VÒNG QUAY MAY MẮN) -->
+    <div class="modal-backdrop" id="minigameModal">
+        <div class="modal-dialog" style="max-width: 460px; text-align: center;">
+            <div class="modal-header" style="background: linear-gradient(135deg, #e67e22, #f39c12);">
+                <span class="modal-title" style="color: #fff;"><i class="fas fa-dharmachakra"></i> VÒNG QUAY QUÂN HUY MOBAVIET</span>
+                <button class="btn-close-modal" onclick="closeModal('minigameModal')">&times;</button>
+            </div>
+            <div class="modal-body" style="display: flex; flex-direction: column; align-items: center;">
+                <p style="font-size: 13px; color: #475569; margin-bottom: 12px;">
+                    Chi phí: <strong>20.000đ / lượt quay</strong> (Cơ hội trúng 999 Quân Huy & Nick VIP)
+                </p>
+
+                <!-- Wheel Canvas Container -->
+                <div style="position: relative; width: 300px; height: 300px; margin: 10px auto;">
+                    <!-- Pointer Arrow -->
+                    <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); z-index: 10; font-size: 26px; color: #e74c3c; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                    <canvas id="wheelCanvas" width="300" height="300" style="border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.15); transition: transform 0.1s linear;"></canvas>
+                </div>
+
+                <button id="btn-spin-wheel" class="btn-filter-apply" style="width: 200px; height: 42px; margin-top: 15px; background: linear-gradient(135deg, #ff4757, #ff6b81); font-size: 14px; border-radius: 9999px;" onclick="spinWheel()">
+                    <i class="fas fa-play"></i> QUAY NGAY (20K)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. MINIGAME CONGRATULATION POPUP (#modalRuongQuanHuy) -->
+    <div class="modal-backdrop" id="modalRuongQuanHuy">
+        <div class="modal-dialog" style="max-width: 380px; text-align: center;">
+            <div class="modal-header" style="justify-content: center; background: #fff; border: none; padding-top: 25px;">
+                <img src="assets/success.png" alt="Success" style="width: 70px;">
+            </div>
+            <div class="modal-body" style="padding-top: 5px;">
+                <h3 style="font-size: 16px; font-weight: 800; color: #1e293b; margin-bottom: 8px;">
+                    CHÚC MỪNG BẠN ĐÃ MỞ TRÚNG!
+                </h3>
+                <div class="j-quanhuy content-popup"></div>
+            </div>
+            <div class="modal-footer" style="justify-content: center; background: #fff; border: none; padding-bottom: 25px;">
+                <button class="btn-filter-apply" style="padding: 0 30px;" onclick="closeModal('modalRuongQuanHuy')">
+                    Chơi tiếp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/minigame.js"></script>
+
+    <script>
+        // Init page elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Render Top Nappers
+            const topList = document.getElementById('top-charge-list');
+            if (topList && window.MOBAVIET_DATA.topNappers) {
+                topList.innerHTML = window.MOBAVIET_DATA.topNappers.map(item => `
+                    <li class="top-charge-item">
+                        <span class="top-rank-badge">${item.rank}</span>
+                        <div class="top-user-name">
+                            ${item.username}
+                            <div style="font-size: 10px; color: #e67e22; font-weight: 700;">+ ${item.reward}</div>
+                        </div>
+                        <span class="top-user-amount">${window.formatMoney(item.amount)}</span>
+                    </li>
+                `).join('');
+            }
+
+            // Render Dynamic Sections (Túi mù, Xả kho, Thử vận may, Săn quân huy)
+            const secWrap = document.getElementById('dynamic-sections');
+            if (secWrap && window.MOBAVIET_DATA.categories) {
+                secWrap.innerHTML = window.MOBAVIET_DATA.categories.map((sec, idx) => {
+                    const secId = idx === 0 ? 'section-tui-mu' : (idx === 2 ? 'section-thu-van-may' : `section-${idx}`);
+                    return `
+                        <section class="section-block" id="${secId}">
+                            <div class="section-header">
+                                <h2 class="section-title">
+                                    <i class="fas fa-tag"></i> ${sec.heading}
+                                </h2>
+                                <a href="#accounts-section" class="section-view-all">Xem tất cả <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            <div class="category-grid">
+                                ${sec.items.map(item => `
+                                    <div class="category-card">
+                                        <div class="category-thumb">
+                                            <img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.src='assets/tuimu.png'">
+                                            <span class="category-badge">${item.count || 'Còn nick'}</span>
+                                        </div>
+                                        <div class="category-info">
+                                            <h3 class="category-name">${item.title}</h3>
+                                            <div class="category-meta"><i class="fas fa-check-circle" style="color: #2ecc71;"></i> Tự động 100%</div>
+                                            <a href="#accounts-section" class="category-btn">Khám phá ngay</a>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </section>
+                    `;
+                }).join('');
+            }
+
+            // Initialize Filter & Accounts
+            window.initAccountFilter();
+        });
+    </script>
+</body>
+</html>
+
