@@ -1,6 +1,7 @@
 /**
- * MOBAVIET PRODUCTION APP CONTROLLER
- * Handles State, Auth, Wallet, Recharges, Buying, Minigames, and Toast UI
+ * TSHOP PRODUCTION APP CONTROLLER
+ * Brand: TSHOP.VN - Premium Gaming Store
+ * Handles State, Auth, Wallet, Recharges, Buying, Minigames, 3D Tilt UI, and Toast UI
  */
 
 (function() {
@@ -11,8 +12,8 @@
         user: {
             isLoggedIn: true,
             id: 2953358,
-            username: "mobaviet_pro",
-            fullname: "Game Thủ VIP",
+            username: "tshop_vip",
+            fullname: "VIP Pro Member",
             balance: 1000000, // 1.000.000đ initial test balance
             phone: "0987654321"
         },
@@ -22,7 +23,7 @@
                 accId: "EQQT16608",
                 title: "Nick Liên Quân VIP - MS: EQQT16608",
                 price: 500000,
-                username: "lienquan_acc16608",
+                username: "tshop_acc16608",
                 password: "Password@9921",
                 twoFactor: "389 122",
                 date: "12/11/2026 14:20"
@@ -42,7 +43,7 @@
     // Load or initialize state
     function loadState() {
         try {
-            const saved = localStorage.getItem('mobaviet_state');
+            const saved = localStorage.getItem('tshop_state') || localStorage.getItem('mobaviet_state');
             if (saved) return JSON.parse(saved);
         } catch (e) {
             console.error("State parse error", e);
@@ -51,6 +52,7 @@
     }
 
     function saveState(state) {
+        localStorage.setItem('tshop_state', JSON.stringify(state));
         localStorage.setItem('mobaviet_state', JSON.stringify(state));
     }
 
@@ -242,7 +244,7 @@
     function setupNoticeModal() {
         const notice = document.getElementById('noticeModal');
         if (!notice) return;
-        const dismissed = sessionStorage.getItem('mobaviet_notice_dismissed');
+        const dismissed = sessionStorage.getItem('tshop_notice_dismissed');
         if (!dismissed) {
             setTimeout(() => {
                 notice.classList.add('show');
@@ -251,7 +253,7 @@
     }
 
     window.dismissNotice = function(permanent = false) {
-        if (permanent) sessionStorage.setItem('mobaviet_notice_dismissed', '1');
+        if (permanent) sessionStorage.setItem('tshop_notice_dismissed', '1');
         closeModal('noticeModal');
     };
 
@@ -520,5 +522,34 @@
             showToast("Đã sao chép vào bộ nhớ tạm!", "success");
         });
     };
+
+    // 11. 3D Tilt Effect on mousemove for Cards & Elements
+    window.init3DTilt = function() {
+        const cards = document.querySelectorAll('.account-card, .category-card, .top-charge-card, .hero-banner-slider');
+        cards.forEach(card => {
+            if (card.dataset.tiltInit) return;
+            card.dataset.tiltInit = 'true';
+            
+            card.addEventListener('mousemove', function(e) {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -8;
+                const rotateY = ((x - centerX) / centerX) * 8;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            card.addEventListener('mouseleave', function() {
+                card.style.transform = '';
+            });
+        });
+    };
+
+    // Auto-init 3D Tilt on DOM ready
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(window.init3DTilt, 200);
+    });
 
 })();

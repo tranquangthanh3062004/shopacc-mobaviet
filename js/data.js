@@ -1,5 +1,5 @@
-// Mobaviet Data Layer
-window.MOBAVIET_DATA = {
+// TSHOP Data Layer
+window.TSHOP_DATA = window.MOBAVIET_DATA = {
     categories: [
   {
     "heading": "Túi mù Liên quân",
@@ -1098,9 +1098,9 @@ window.MOBAVIET_DATA = {
     bankInfo: {
   "bankName": "MB BANK (Ngân hàng Quân Đội)",
   "accountNumber": "0362443838",
-  "accountHolder": "NGUYEN VAN THOAI (MOBAVIET)",
+  "accountHolder": "NGUYEN VAN THOAI (TSHOP)",
   "qrTemplate": "https://api.vietqr.io/image/970422-0362443838-compact2.png?amount={amount}&addInfo={content}&accountName=NGUYEN%20VAN%20THOAI",
-  "syntaxPrefix": "MOBAVIET NAP "
+  "syntaxPrefix": "TSHOP NAP "
 },
     luckyWheelPrizes: [
   {

@@ -169,6 +169,11 @@
                 paginationWrap.innerHTML = html;
             }
         }
+
+        // Trigger 3D Tilt for freshly rendered account cards
+        if (window.init3DTilt) {
+            setTimeout(window.init3DTilt, 50);
+        }
     }
 
     window.goToAccountPage = function(page) {

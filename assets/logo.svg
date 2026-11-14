@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 70" width="320" height="70">
+  <defs>
+    <!-- Background / Glow Filters -->
+    <filter id="neon-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="drop-shadow-3d" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+
+    <!-- Gradients -->
+    <linearGradient id="shield-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="40%" stop-color="#32c5d2" />
+      <stop offset="100%" stop-color="#192a56" />
+    </linearGradient>
+
+    <linearGradient id="t-bevel-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#0984e3" />
+    </linearGradient>
+
+    <linearGradient id="t-bevel-2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00cec9" />
+      <stop offset="100%" stop-color="#74b9ff" />
+    </linearGradient>
+
+    <linearGradient id="text-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#e0f7fa" />
+      <stop offset="100%" stop-color="#00f2fe" />
+    </linearGradient>
+
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffeaa7" />
+      <stop offset="50%" stop-color="#fdcb6e" />
+      <stop offset="100%" stop-color="#e17055" />
+    </linearGradient>
+  </defs>
+
+  <!-- 3D SHIELD EMBLEM -->
+  <g transform="translate(10, 5)" filter="url(#drop-shadow-3d)">
+    <!-- Outer Shield Hexagon 3D Border -->
+    <polygon points="30,0 55,10 55,42 30,58 5,42 5,10" fill="#0f172a" stroke="#00f2fe" stroke-width="2.5" />
+    
+    <!-- Inner Shield Facets with 3D Depth -->
+    <polygon points="30,3 52,12 52,40 30,55" fill="url(#shield-grad)" opacity="0.85" />
+    <polygon points="30,3 8,12 8,40 30,55" fill="#1e293b" opacity="0.9" />
+
+    <!-- 3D STYLIZED 'T' CORE -->
+    <!-- T Top Bar Left Bevel -->
+    <polygon points="12,16 30,16 30,22 17,22" fill="url(#t-bevel-1)" />
+    <!-- T Top Bar Right Bevel -->
+    <polygon points="30,16 48,16 43,22 30,22" fill="url(#t-bevel-2)" />
+    <!-- T Center Stem Left (Lighting) -->
+    <polygon points="26,22 30,22 30,48 26,44" fill="#ffffff" />
+    <!-- T Center Stem Right (Shadow) -->
+    <polygon points="30,22 34,22 34,44 30,48" fill="#00cec9" />
+    
+    <!-- Neon Core Gem -->
+    <circle cx="30" cy="19" r="2.5" fill="#fff" filter="url(#neon-glow)" />
+    
+    <!-- Corner Tech Accents -->
+    <polyline points="2,16 2,6 12,2" fill="none" stroke="#00f2fe" stroke-width="2" />
+    <polyline points="58,16 58,6 48,2" fill="none" stroke="#00f2fe" stroke-width="2" />
+  </g>
+
+  <!-- BRAND NAME 'TSHOP' -->
+  <g transform="translate(82, 12)">
+    <!-- Main Title with 3D Shadow -->
+    <text x="0" y="32" 
+          font-family="'Montserrat', 'Arial Black', sans-serif" 
+          font-weight="900" 
+          font-size="34" 
+          letter-spacing="1.5"
+          fill="#0a192f" 
+          dx="2" dy="2">TSHOP</text>
+    
+    <text x="0" y="32" 
+          font-family="'Montserrat', 'Arial Black', sans-serif" 
+          font-weight="900" 
+          font-size="34" 
+          letter-spacing="1.5"
+          fill="url(#text-grad)" filter="url(#drop-shadow-3d)">TSHOP</text>
+
+    <!-- .VN Badge in 3D Gold / Cyan -->
+    <g transform="translate(132, 8)">
+      <rect x="0" y="4" width="46" height="22" rx="4" fill="url(#gold-grad)" filter="url(#drop-shadow-3d)" />
+      <text x="23" y="20" 
+            font-family="'Montserrat', sans-serif" 
+            font-weight="900" 
+            font-size="12" 
+            fill="#1e272e" 
+            text-anchor="middle"
+            letter-spacing="1">.VN</text>
+    </g>
+
+    <!-- Subtitle Slogan -->
+    <text x="2" y="46" 
+          font-family="'Montserrat', sans-serif" 
+          font-weight="700" 
+          font-size="9" 
+          letter-spacing="2.5" 
+          fill="#00f2fe" 
+          opacity="0.95">PREMIUM GAMING STORE</text>
+  </g>
+</svg>
+
